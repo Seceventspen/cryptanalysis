@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CryptAnalysis Output</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Arial Nova Light', courier new; serif; /* Change the font */
+        }
+
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 20px auto; /* Center all tables */
+            border-right: 1px solid #ddd; /* Add right-hand side border */
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th:last-child, td:last-child {
+            border-right: 1px solid #ddd; /* Add right-hand side border for the last column */
+        }
+
+        th {
+            background-color: #3CA2A2; /* table header colour - edit to suit */
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+
+            #custom-logo {
+            display: block;
+            margin: 20px auto; /* Centre the image */
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Add the logo at the top -->
+    <img id="custom-logo" src="data:image/png;base64,_PLACE_YOUR_CUSTOM_BASE64_ENCODE_IMAGE_HERE_"></img>
+
+    <table>
+        <tr>
+            <th colspan="2">Analysis Overview</th>
+        </tr>
+        <tr>
+            <td>Longest Password</td>
+            <td>{{ longestPass }}</td>
+        </tr>
+        <tr>
+            <td>Shortest Password</td>
+            <td>{{ shortestPass }}</td>
+        </tr>
+        <tr>
+            <td>Mean Average Password Length</td>
+            <td>{{ mean_password_length }}</td>
+        </tr>
+        <tr>
+            <td>Median Password Length</td>
+            <td>{{ median_password_length }}</td>
+        </tr>
+        <tr>
+            <td>Total Passwords Cracked</td>
+            <td>{{ passCounter }}</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th colspan="2">Top 10 Passwords</th>
+        </tr>
+        {% for password, count in sorted_x[:10] %}
+        <tr>
+            <td>{{ password }}</td>
+            <td>{{ count }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <table>
+        <tr>
+            <th colspan="2">Occurrences of Months in Passwords</th>
+        </tr>
+        {% for month, count in monthsDict.items() %}
+        <tr>
+            <td>{{ month }}</td>
+            <td>{{ count }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <table>
+        <tr>
+            <th colspan="2">Occurrences of Seasons in Passwords</th>
+        </tr>
+        {% for season, count in seasonsDict.items() %}
+        <tr>
+            <td>{{ season }}</td>
+            <td>{{ count }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <table>
+        <tr>
+            <th colspan="2">Occurrences of Colours in Passwords</th>
+        </tr>
+        {% for colour, count in colourDict.items() %}
+        <tr>
+            <td>{{ colour }}</td>
+            <td>{{ count }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <table>
+        <tr>
+            <th colspan="2">Top 10 Years in Passwords</th>
+        </tr>
+        {% for year, count in top_years %}
+        <tr>
+            <td>{{ year }}</td>
+            <td>{{ count }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+
+</html>
