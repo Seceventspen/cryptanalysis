@@ -3,7 +3,7 @@ Takes the output of Hashcat pot file and does some basic stats and cryptanalysis
 
 `cryptanalysis.py` Expects the content format of the supplied dit file to look like this:
 
-**<username>:<hash>:<password>** e.g., `bob:b4b9b02e6f09a9bd760f388b67351e2b:hashcat`
+**\<username\>:\<hash\>:\<password\>** e.g., `bob:b4b9b02e6f09a9bd760f388b67351e2b:hashcat`
 
 ## Installation
 **Simply clone or download the repo, then:**
